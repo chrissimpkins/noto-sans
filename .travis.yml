@@ -1,0 +1,17 @@
+language: python
+matrix:
+  include:
+    - python: 3.7
+      dist: xenial
+      env: TOX_ENV=GNU-Linux
+      install: pip install --upgrade fontmake
+      script: ./build.sh
+    - os: osx
+      language: generic
+      osx_image: xcode11    # Python 3.7.4 running on macOS 10.14.4
+      install: pip3 install --upgrade fontmake
+      env: TOX_ENV=macOS
+      script: ./build.sh
+
+notifications:
+  email: false
